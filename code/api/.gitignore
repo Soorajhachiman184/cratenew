@@ -1,5 +1,4 @@
 node_modules/
 build/
-public/images/uploads/*
-!public/images/uploads/.gitkeep
-*.sqlite3
+public/js/bundles/
+public/index.html

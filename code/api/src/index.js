@@ -1,23 +1,21 @@
 // Imports
-import express from 'express'
+import { Server } from 'http'
+import Express from 'express'
 
 // App Imports
-import setupLoadModules from './setup/load-modules'
-import setupGraphQL from './setup/graphql'
-import setupUpload from './setup/upload'
-import setupStartServer from './setup/start-server'
+import loadModules from './setup/server/load-modules'
+import loadRoutes from './setup/server/load-routes'
+import startServer from './setup/server/start-server'
 
-// Create express server
-const server = express()
+// Create new server
+const app = new Express()
+const server = new Server(app)
 
-// Setup load modules
-setupLoadModules(server)
+// Load modules
+loadModules(app)
 
-// Setup uploads
-setupUpload(server)
+// Load routes
+loadRoutes(app)
 
-// Setup GraphQL
-setupGraphQL(server)
-
-// Start server
-setupStartServer(server)
+// Start Server
+startServer(server)
